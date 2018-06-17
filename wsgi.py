@@ -1,6 +1,6 @@
 from cgi import parse_qs
 import json
-from game import new_game, game
+from game import new_game, guess
 
 def application(environ, start_response):
 
