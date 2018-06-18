@@ -1,6 +1,6 @@
-from UpDown import UpDown
+from UpDown import updown
 
-ud=UpDown()
+ud=updown()
 
 def new_game(d):
 	try:
@@ -8,18 +8,18 @@ def new_game(d):
 	except:
 		return {'code': 'error', 'msg': 'count not given'}
 
-	up.new(count)
+	ud.new(count)
 
 	return {'code': 'success'}
 
 
 def guess(d):
 	try:
-		guess = d.get('guess', [''])[0]
+		guess = int(d.get('guess', [''])[0])
 	except:
 		return {'code': 'error', 'msg': 'wrong guess parameter'}
 
-	response = up.start(guess)
-	trials = up.total()
+	response = ud.start(guess)
+	trials = ud.total()
 
 	return {'code': 'success', 'msg': response, 'trials': trials}
